@@ -4,16 +4,16 @@ parser = argparse.ArgumentParser("Given a file with newline separated integers r
 
 parser.add_argument('file_name', type=str, help='Depths input file name')
 
-def main():
+def main() -> None:
     args = parser.parse_args()
 
     f = open(args.file_name, "r")
 
-    prev = int(f.readline())
-    count = 0;
+    prev: int = int(f.readline())
+    count: int = 0;
 
     for entry in f:
-        value = int(entry)
+        value: int = int(entry)
         if (value > prev): count += 1
         prev = value
 
