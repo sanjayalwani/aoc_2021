@@ -1,8 +1,8 @@
 import argparse
 
-parser = argparse.ArgumentParser("Given a file with newline separated integers returns number of strictly increasing adjacent depths")
+parser = argparse.ArgumentParser("Given an input file, prints the solution")
 
-parser.add_argument('file_name', type=str, help='Depths input file name')
+parser.add_argument('file_name', type=str, help='Input file name')
 
 def main():
     args = parser.parse_args()
