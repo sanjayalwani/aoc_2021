@@ -1,4 +1,5 @@
 import argparse
+from collections import deque
 
 parser = argparse.ArgumentParser("Given an input file, prints the solution")
 
@@ -13,16 +14,14 @@ def main():
     initial = [int(x) for x in f.readline().split(',')]
 
     days = args.days
-    buckets = [0 for x in range(9)]
+    buckets = deque([0 for x in range(9)])
 
     for time in initial:
         buckets[time] += 1
 
     for i in range(days):
         newfish = buckets[0]
-        for j in range(8):
-            buckets[j] = buckets[j + 1 % 9]
-        buckets[8] = newfish
+        buckets.rotate(-1)
         buckets[6] += newfish
 
 
